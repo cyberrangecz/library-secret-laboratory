@@ -1,0 +1,65 @@
+- name: Adding aliases
+  loop: "{{ aliases | dict2items }}"
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.value }} {{ item.key }}"
+
+- name: add SUPER SECRET ALIAS THAT WILL SAVE US ALL IN CASE WE CRASH
+  blockinfile:
+      path: /root/.bashrc
+      block: | 
+        researchers() { 
+            python3 /home/vagrant/recv.py & 
+            disown
+        }
+
+- name: Add password so it can eventually find something
+  lineinfile:
+      path: /usr/share/wordlists/fasttrack.txt
+      line: mrscorona7
+
+- name: Copy script
+  copy:
+      src: "../files/{{ item }}"
+      dest: "/home/vagrant/{{ item }}"
+      owner: vagrant
+      group: vagrant
+      mode: '0755'
+  with_items:
+      - recv.py
+      - recv.sh
+
+
+- name: copy service
+  copy:
+      src: ../files/recv.service
+      dest: /lib/systemd/system/recv.service
+
+- name: just force systemd to reread configs (2.4 and above)
+  systemd:
+    daemon_reload: yes
+
+- name: just force systemd to re-execute itself (2.8 and above)
+  systemd:
+    daemon_reexec: yes
+
+
+- name: Remove wordlists
+  file:
+      path: "/usr/share/wordlists/{{ item }}"
+      state: absent
+  with_items:
+    -  dirb 
+    -  dirbuster
+    -  fern-wifi
+    -  metasploit 
+    -  nmap.lst 
+    -  wfuzz 
+    -  rockyou.txt.gz 
+
+
+- name: Start python based service
+  systemd:
+      name: recv.service
+      enabled: true
+      state: started

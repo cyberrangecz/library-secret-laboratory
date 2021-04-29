@@ -1,0 +1,20 @@
+import socket
+import time
+
+soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+soc.bind(('127.0.0.1', 4444))
+
+soc.listen()
+while True:
+    conn, addr = soc.accept()
+    with conn:
+        line = conn.recv(8192)
+        time.sleep(3)
+        conn.sendall(b'\nIs this what I think it is?\n')
+        time.sleep(3)
+        if '，愈聽愈惱 饒爾去罷」 也懊悔不了. 出 去 誨 耳 矣. 關雎 ，可 去 意 誨. 」 意' in line.decode('utf-8'):
+            conn.sendall(b'\nI don\'t know who you are, but you have probably saved the world...\n')
+            conn.sendall(b'WE SURVIVE AFTER ALL\n')
+        else:
+            conn.sendall(b'\nOh no, I can\'t figure it out.. Did the data get damaged?\n')
+

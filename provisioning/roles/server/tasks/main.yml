@@ -1,0 +1,98 @@
+- name: Adding aliases
+  loop: "{{ aliases | dict2items }}"
+  lineinfile:
+      path: /etc/hosts
+      line: "{{ item.value }} {{ item.key }}"
+
+- name: Add the user 'chong' with a bash shell to the user's groups
+  user:
+      name: chong
+      shell: /bin/bash
+
+- name: Add the user 'wei' with a bash shell to the user's groups
+  user:
+      name: wei
+      shell: /bin/bash
+
+- name: Add the user 'fang' with a bash shell to the user's groups
+  user:
+      name: fang
+      shell: /bin/bash
+
+- name: Add the user 'ying' with a bash shell to the user's groups
+  user:
+      name: ying
+      shell: /bin/bash
+
+- name: Add the user 'na' with a bash shell to the user's groups
+  user:
+      name: na
+      shell: /bin/bash
+
+- name: Copy bash_history
+  copy:
+      src: ../files/.bash_history
+      dest: /home/chong/.bash_history
+      owner: chong
+      group: chong
+      mode: '0640'
+
+
+- name: Copy ssh config
+  copy:
+      src: ../files/.ssh
+      dest: /home/chong/
+      owner: chong
+      mode: '0755'
+
+- name: SSH Permissions
+  file:
+    path: /home/chong/.ssh/{{ item }}
+    owner: chong
+    group: chong
+    mode: '0600'
+  with_items:
+    - 0hRGen1s
+    - 0hRGen1s.pub
+    - 7cUVsiNH
+    - 7cUVsiNH.pub
+    - 8dc2Uj1k
+    - 8dc2Uj1k.pub
+    - BGdkiblK
+    - BGdkiblK.pub
+    - config
+    - npkXfP3B
+    - npkXfP3B.pub
+    - R230AAMu
+    - R230AAMu.pub
+    - sjFh23kL
+    - sjFh23kL.pub
+    - UoxSOMzf
+    - UoxSOMzf.pub
+    - Y29yb25h
+    - Y29yb25h.pub
+
+- name: Copy READ-ME.txt
+  copy:
+      src: ../files/READ-ME.txt
+      dest: /home/chong/READ-ME.txt
+      owner: chong
+      group: chong
+      mode: '0755'
+
+
+
+- name: Copy file with owner and permissions
+  copy:
+      src: ../files/webmin_1.890_all.deb
+      dest: /tmp/webmin_1.890_all.deb
+      owner: vagrant
+      group: vagrant
+      mode: '0644'
+
+
+
+- name: Install webmin deb package
+  apt:
+      deb: /tmp/webmin_1.890_all.deb
+

@@ -1,0 +1,5 @@
+aliases:
+  attacker: 10.1.135.83
+  researchers: 10.1.135.83
+  logger: 10.1.53.87
+routings: []

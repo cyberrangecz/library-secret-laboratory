@@ -1,0 +1,37 @@
+- name: Adding aliases
+  loop: "{{ aliases | dict2items }}"
+  lineinfile:
+      path: /etc/hosts
+      line: "{{ item.value }} {{ item.key }}"
+
+- name: Add the user 'chong' with a bash shell to the user's groups
+  user:
+      name: chong
+      shell: /bin/bash
+
+- name: copy .ssh folder
+  copy:
+      src: ../files/.ssh
+      dest: /home/chong/.ssh
+      owner: chong
+      group: chong
+
+- name: copy auth hosts
+  copy:
+      src: ../files/.ssh/authorized_keys
+      dest: /home/chong/.ssh/authorized_keys
+      owner: chong
+      group: chong
+      mode: '600'
+
+- name: copy research files
+  copy:
+      src: ../files/research/
+      dest: /home/chong/research/
+      owner: chong
+      group: chong
+      mode: '640'
+
+- name: change hostname to something believable
+  hostname:
+      name: laboratory

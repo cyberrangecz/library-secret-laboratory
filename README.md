@@ -1,3 +1,15 @@
-# secret-laboratory
+# Cybersecurity game "Secret laboratory"
 
-Cybersecurity game "Secret laboratory" created as a part of the PV276 course by students of Faculty of Informatics, Masaryk University, in Spring 2020 semester.
+This cybersecurity game allows a **hands-on demonstration and practice** of topics such as network scanning, SSH connections, and password cracking. It is suitable for undergraduate students in computing.
+
+Please follow the [general instructions](https://gitlab.ics.muni.cz/muni-kypo-trainings/games/all-games-index) to set up the game.
+
+## Credits
+
+**[Cybersecurity Laboratory](https://kypo.fi.muni.cz)**\
+**Faculty of Informatics**\
+**Masaryk University**
+
+**Leading authors:** Stanislav Boboň, David Hofman, Jakub Smatana
+
+**Contributors/Consultants:** Valdemar Švábenský, Jan Vykopal
