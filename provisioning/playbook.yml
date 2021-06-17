@@ -83,3 +83,13 @@
         name: syslog-ng
         state: restarted
         enabled: yes
+
+# Add hosts aliases
+- hosts: attacker
+  become: true
+  roles:
+      - role: hosts-aliases
+        vars:
+            hosts_aliases_nodes_ip:
+                server: 10.1.26.9
+                client: 10.1.17.4

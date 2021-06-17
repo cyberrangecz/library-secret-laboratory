@@ -12,12 +12,14 @@ hosts:
       image: munikypo/debian-10-x86_64
       man_user: debian
     flavor: csirtmu.tiny1x2
+    hidden: True
 
   - name: client
     base_box: 
       image: munikypo/debian-10-x86_64
       man_user: debian
     flavor: csirtmu.tiny1x2
+    hidden: True
 
 routers:
   - name: router

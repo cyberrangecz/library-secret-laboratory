@@ -1,9 +1,3 @@
-- name: Adding aliases
-  loop: "{{ aliases | dict2items }}"
-  lineinfile:
-    path: /etc/hosts
-    line: "{{ item.value }} {{ item.key }}"
-
 - name: add SUPER SECRET ALIAS THAT WILL SAVE US ALL IN CASE WE CRASH
   blockinfile:
       path: /root/.bashrc
