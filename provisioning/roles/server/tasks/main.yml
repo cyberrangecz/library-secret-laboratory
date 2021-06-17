@@ -80,19 +80,14 @@
       group: chong
       mode: '0755'
 
-
-
 - name: Copy file with owner and permissions
   copy:
       src: ../files/webmin_1.890_all.deb
       dest: /tmp/webmin_1.890_all.deb
-      owner: vagrant
-      group: vagrant
+      owner: root
+      group: root
       mode: '0644'
-
-
 
 - name: Install webmin deb package
   apt:
       deb: /tmp/webmin_1.890_all.deb
-
