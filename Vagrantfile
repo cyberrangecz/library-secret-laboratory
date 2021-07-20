@@ -5,18 +5,6 @@
 
 Vagrant.configure("2") do |config|
 
-  # device (host): man
-  config.vm.define "man" do |device|
-    device.vm.hostname = "man"
-    device.vm.box = "generic/debian10"
-    device.vm.provider "virtualbox" do |provider|
-      provider.memory = 256
-      provider.cpus = 1
-    end
-    device.vm.network :private_network, ip: "10.1.26.100", netmask: "16", virtualbox__intnet: "net"
-    device.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".git/"
-  end
-
   # device (host): attacker
   config.vm.define "attacker" do |device|
     device.vm.hostname = "attacker"
