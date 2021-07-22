@@ -13,6 +13,7 @@
       line: mrscorona7
 
 - name: Copy script
+  become: yes
   copy:
       src: "../files/{{ item }}"
       dest: "/home/kali/{{ item }}"
