@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   # device (host): attacker
   config.vm.define "attacker" do |device|
     device.vm.hostname = "attacker"
-    device.vm.box = "munikypo/kali-2019.4"
+    device.vm.box = "munikypo/kali-2020.4"
     device.vm.provider "virtualbox" do |provider|
       provider.memory = 2048
       provider.cpus = 2

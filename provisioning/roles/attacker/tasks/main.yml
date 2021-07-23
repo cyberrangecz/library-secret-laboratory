@@ -1,6 +1,6 @@
 - name: add SUPER SECRET ALIAS THAT WILL SAVE US ALL IN CASE WE CRASH
   blockinfile:
-      path: /root/.bashrc
+      path: /home/kali/.zshrc
       block: | 
         researchers() { 
             python3 /home/kali/recv.py & 
