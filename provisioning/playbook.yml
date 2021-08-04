@@ -45,7 +45,7 @@
   become_user: root
   vars:
     student_id: 0
-    sandbox_name: junior-hacker-local
+    sandbox_name: secret-laboratory-local
     central_syslog_ip: 78.128.251.179
   roles:
     - role: sandbox-logging-forward

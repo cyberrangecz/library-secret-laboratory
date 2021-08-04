@@ -6,9 +6,9 @@ Please follow the [general instructions](https://gitlab.ics.muni.cz/muni-kypo-tr
 
 ## Credits
 
-**[Cybersecurity Laboratory](https://kypo.fi.muni.cz)**\
-**Faculty of Informatics**\
-**Masaryk University**
+[Cybersecurity Laboratory](https://cybersec.fi.muni.cz)\
+Faculty of Informatics\
+Masaryk University
 
 **Leading authors:** Stanislav Boboň, David Hofman, Jakub Smatana
 
