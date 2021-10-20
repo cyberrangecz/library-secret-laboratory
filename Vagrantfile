@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   # device (host): server
   config.vm.define "server" do |device|
     device.vm.hostname = "server"
-    device.vm.box = "generic/debian10"
+    device.vm.box = "munikypo/debian-10"
     device.vm.provider "virtualbox" do |provider|
       provider.memory = 512
       provider.cpus = 1
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
   # device (host): client
   config.vm.define "client" do |device|
     device.vm.hostname = "client"
-    device.vm.box = "generic/debian10"
+    device.vm.box = "munikypo/debian-10"
     device.vm.provider "virtualbox" do |provider|
       provider.memory = 512
       provider.cpus = 1

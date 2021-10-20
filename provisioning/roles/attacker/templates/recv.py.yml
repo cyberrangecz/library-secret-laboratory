@@ -14,7 +14,6 @@ while True:
         time.sleep(3)
         if '，愈聽愈惱 饒爾去罷」 也懊悔不了. 出 去 誨 耳 矣. 關雎 ，可 去 意 誨. 」 意' in line.decode('utf-8'):
             conn.sendall(b'\nI don\'t know who you are, but you have probably saved the world...\n')
-            conn.sendall(b'WE SURVIVE AFTER ALL\n')
+            conn.sendall(bytes("F L A G:{{level_5_flag}}",'utf-8'))
         else:
             conn.sendall(b'\nOh no, I can\'t figure it out.. Did the data get damaged?\n')
-

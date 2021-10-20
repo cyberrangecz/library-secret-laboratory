@@ -32,19 +32,13 @@
       mode: '0640'
 
 
-- name: Copy ssh config
+- name: Copy SSH key files
   copy:
-      src: ../files/.ssh
-      dest: /home/chong/
+      src: ../files/.ssh/{{ item }}
+      dest: /home/chong/.ssh/
       owner: chong
-      mode: '0755'
-
-- name: SSH Permissions
-  file:
-    path: /home/chong/.ssh/{{ item }}
-    owner: chong
-    group: chong
-    mode: '0600'
+      group: chong
+      mode: '0600'
   with_items:
     - 0hRGen1s
     - 0hRGen1s.pub
@@ -54,7 +48,6 @@
     - 8dc2Uj1k.pub
     - BGdkiblK
     - BGdkiblK.pub
-    - config
     - npkXfP3B
     - npkXfP3B.pub
     - R230AAMu
@@ -63,13 +56,27 @@
     - sjFh23kL.pub
     - UoxSOMzf
     - UoxSOMzf.pub
-    - Y29yb25h
-    - Y29yb25h.pub
+    - key
+    - key.pub
+
+- name: Rename SSH public key
+  command: mv /home/chong/.ssh/key.pub "/home/chong/.ssh/{{ level_3_flag }}.pub"
+
+- name: Rename SSH private key
+  command: mv /home/chong/.ssh/key "/home/chong/.ssh/{{ level_3_flag }}"
+
+- name: Copy .ssh/config file
+  template:
+      src: "../templates/config.yml"
+      dest: "/home/chong/.ssh/config"
+      owner: chong
+      group: chong
+      mode: '0755'
 
 - name: Copy READ-ME.txt
-  copy:
-      src: ../files/READ-ME.txt
-      dest: /home/chong/READ-ME.txt
+  template:
+      src: "../templates/READ-ME.txt.yml"
+      dest: "/home/chong/READ-ME.txt"
       owner: chong
       group: chong
       mode: '0755'

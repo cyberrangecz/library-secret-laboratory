@@ -1,4 +1,4 @@
 #!/bin/sh
 
-nohup python3 /home/kali/recv.py &
+nohup python3 /opt/recv.py &
 disown

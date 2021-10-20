@@ -1,0 +1,45 @@
+host server
+Hostname 147.251.48.1
+User chong
+IdentityFile ~/.ssh/8dc2Uj1k
+
+host github.com
+ HostName github.com
+ IdentityFile ~/.ssh/sjFh23kL
+ User git
+
+host lab
+Hostname 10.1.17.4
+User chong
+IdentityFile ~/.ssh/{{ level_3_flag }}
+
+host home_pc
+Hostname 146.75.88.176
+User chong
+IdentityFile ~/.ssh/0hRGen1s
+
+host new_pc
+Hostname 217.63.117.197
+User chong
+IdentityFile ~/.ssh/7cUVsiNH
+
+host china_stuff
+Hostname 219.169.69.246
+User chong
+IdentityFile ~/.ssh/BGdkiblK
+
+host book_store
+Hostname 18.255.80.105
+User chong
+IdentityFile ~/.ssh/npkXfP3B
+
+host work_server
+Hostname 157.6.85.220
+User chong
+IdentityFile ~/.ssh/R230AAMu
+
+host mom_pc
+Hostname 0.188.94.191
+User chong
+IdentityFile ~/.ssh/UoxSOMzf
+
