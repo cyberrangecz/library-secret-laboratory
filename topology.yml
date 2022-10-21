@@ -37,7 +37,7 @@ networks:
     cidr: 10.1.0.0/16
     accessible_by_user: False
   - name: attacker-switch
-    cird: 10.2.0.0/16
+    cidr: 10.2.0.0/16
 
 net_mappings:
     - host: attacker
