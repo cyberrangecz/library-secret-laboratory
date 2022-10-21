@@ -35,11 +35,14 @@ wan:
 networks:
   - name: switch
     cidr: 10.1.0.0/16
+    accessible_by_user: False
+  - name: attacker-switch
+    cird: 10.2.0.0/16
 
 net_mappings:
     - host: attacker
-      network: switch
-      ip: 10.1.135.83
+      network: attacker-switch
+      ip: 10.2.135.83
 
     - host: server
       network: switch
@@ -53,5 +56,8 @@ router_mappings:
     - router: router
       network: switch
       ip: 10.1.0.1
+    - router: router
+      network: attacker-switch
+      ip: 10.2.0.1
 
 groups: []
