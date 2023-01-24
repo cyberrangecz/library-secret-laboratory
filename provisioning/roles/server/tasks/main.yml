@@ -92,3 +92,4 @@
 - name: Install webmin deb package
   apt:
       deb: /tmp/webmin_1.890_all.deb
+      update_cache: yes
