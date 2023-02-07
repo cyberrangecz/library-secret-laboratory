@@ -9,7 +9,7 @@
     - hosts
 
 # Installation and configuration of each host
-- name: Configuring devices separately
+- name: Configuring hosts separately
   hosts: hosts
   become: yes
   tasks:
@@ -29,6 +29,16 @@
       apt_key:
         url: https://archive.kali.org/archive-key.asc
         state: present
+
+# Enable SSH access to attacker
+- name: Configuring hosts
+  hosts: attacker
+  become: yes
+  roles:
+    - role: kypo-user-access
+      kypo_user_access_username: 'kali'
+      kypo_user_access_password: 'kali'
+
 
 - hosts: attacker
   become: true

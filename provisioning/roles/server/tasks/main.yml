@@ -1,40 +1,20 @@
-- name: Add the user 'chong' with a bash shell to the user's groups
+- name: Add users with a bash shell to the user's groups
   user:
-      name: chong
+      name: "{{ item }}"
       shell: /bin/bash
-
-- name: Add the user 'wei' with a bash shell to the user's groups
-  user:
-      name: wei
-      shell: /bin/bash
-
-- name: Add the user 'fang' with a bash shell to the user's groups
-  user:
-      name: fang
-      shell: /bin/bash
-
-- name: Add the user 'ying' with a bash shell to the user's groups
-  user:
-      name: ying
-      shell: /bin/bash
-
-- name: Add the user 'na' with a bash shell to the user's groups
-  user:
-      name: na
-      shell: /bin/bash
+  loop: "{{ users }}"
 
 - name: Copy bash_history
   copy:
-      src: ../files/.bash_history
+      src: .bash_history
       dest: /home/chong/.bash_history
       owner: chong
       group: chong
       mode: '0640'
 
-
 - name: Copy SSH key files
   copy:
-      src: ../files/.ssh/{{ item }}
+      src: .ssh/{{ item }}
       dest: /home/chong/.ssh/
       owner: chong
       group: chong
@@ -67,23 +47,23 @@
 
 - name: Copy .ssh/config file
   template:
-      src: "../templates/config.yml"
-      dest: "/home/chong/.ssh/config"
+      src: config.yml
+      dest: /home/chong/.ssh/config
       owner: chong
       group: chong
       mode: '0755'
 
 - name: Copy READ-ME.txt
   template:
-      src: "../templates/READ-ME.txt.yml"
-      dest: "/home/chong/READ-ME.txt"
+      src: READ-ME.txt.yml
+      dest: /home/chong/READ-ME.txt
       owner: chong
       group: chong
       mode: '0755'
 
 - name: Copy file with owner and permissions
   copy:
-      src: ../files/webmin_1.890_all.deb
+      src: webmin_1.890_all.deb
       dest: /tmp/webmin_1.890_all.deb
       owner: root
       group: root

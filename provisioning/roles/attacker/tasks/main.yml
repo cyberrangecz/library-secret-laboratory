@@ -14,25 +14,23 @@
 
 - name: Copy listener shell script
   copy:
-      src: "../files/{{ item }}"
-      dest: "/opt/{{ item }}"
+      src: recv.sh
+      dest: /opt/recv.sh
       owner: kali
       group: kali
       mode: '0755'
-  with_items:
-      - recv.sh
 
 - name : Copy listener Python script
   template:
-      src: "../templates/recv.py.yml"
-      dest: "/opt/recv.py"
+      src: recv.py.yml
+      dest: /opt/recv.py
       owner: kali
       group: kali
       mode: '0755'
 
 - name: Copy service script
   copy:
-      src: ../files/recv.service
+      src: recv.service
       dest: /lib/systemd/system/recv.service
 
 - name: just force systemd to reread configs (2.4 and above)
