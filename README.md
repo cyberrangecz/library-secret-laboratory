@@ -1,10 +1,24 @@
 # Cybersecurity game "Secret laboratory"
 
-This cybersecurity game allows a **hands-on demonstration and practice** of topics such as network scanning, SSH connections, and password cracking. It is suitable for undergraduate students in computing.
+Linear game for [KYPO CRP](https://docs.crp.kypo.muni.cz/) with [APG](https://docs.crp.kypo.muni.cz/user-guide-advanced/trainings/trainings-overview/#automatic-generation-problem-apg-in-linear-training-definition).
 
-Please follow the [general instructions](https://gitlab.ics.muni.cz/muni-kypo-trainings/games/all-games-index) to set up the game, learn more about its [licensing](https://gitlab.ics.muni.cz/muni-kypo-trainings/games/all-games-index#license), and see how to [cite it](https://gitlab.ics.muni.cz/muni-kypo-trainings/games/all-games-index#how-to-cite-the-games).
+## Game Levels Summary
+- host scan with `nmap`
+- exploit `webmin` with `metasploit`
+- host exploration and analysis of `.bash_history`
+- private SSH key password cracking with `john`
+- connection with SSH key and host exploration
 
-## Credits
+## Topology summary
+|Host|Image|Flavor|
+|-|-|-|
+|attacker|kali|csirtmu.tiny1x2|
+|server|debian-10|csirtmu.tiny1x2|
+|client|debian-10|csirtmu.tiny1x2|
+|router|debian-10-x86_64|csirtmu.tiny1x2|
+
+## License and Credits
+See [licensing](https://gitlab.ics.muni.cz/muni-kypo-trainings/games/all-games-index#license) and how to [cite it](https://gitlab.ics.muni.cz/muni-kypo-trainings/games/all-games-index#how-to-cite-the-games).
 
 [Cybersecurity Laboratory](https://cybersec.fi.muni.cz)\
 Faculty of Informatics\
