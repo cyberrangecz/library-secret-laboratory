@@ -1,6 +1,6 @@
 - name: add SUPER SECRET ALIAS THAT WILL SAVE US ALL IN CASE WE CRASH
   blockinfile:
-      path: /home/kali/.zshrc
+      path: /home/user/.zshrc
       block: |
         researchers() {
             python3 /opt/recv.py &
@@ -16,16 +16,16 @@
   copy:
       src: recv.sh
       dest: /opt/recv.sh
-      owner: kali
-      group: kali
+      owner: user
+      group: user
       mode: '0755'
 
 - name : Copy listener Python script
   template:
       src: recv.py.yml
       dest: /opt/recv.py
-      owner: kali
-      group: kali
+      owner: user
+      group: user
       mode: '0755'
 
 - name: Copy service script
