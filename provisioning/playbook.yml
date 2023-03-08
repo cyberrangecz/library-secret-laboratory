@@ -17,6 +17,11 @@
       kypo_user_access_username: user
       kypo_user_access_password: Password123
       kypo_user_access_sudo: True
+  tasks:
+    - name: Set zsh for user
+      user:
+        name: user
+        shell: /bin/zsh
 
 # Installation and configuration of each host
 - name: Configuring hosts separately
