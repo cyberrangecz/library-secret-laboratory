@@ -8,6 +8,16 @@
   roles:
     - hosts
 
+# Enable SSH access to attacker
+- name: Configuring hosts
+  hosts: attacker
+  become: yes
+  roles:
+    - role: kypo-user-access
+      kypo_user_access_username: user
+      kypo_user_access_password: Password123
+      kypo_user_access_sudo: True
+
 # Installation and configuration of each host
 - name: Configuring hosts separately
   hosts: hosts
@@ -29,16 +39,6 @@
       apt_key:
         url: https://archive.kali.org/archive-key.asc
         state: present
-
-# Enable SSH access to attacker
-- name: Configuring hosts
-  hosts: attacker
-  become: yes
-  roles:
-    - role: kypo-user-access
-      kypo_user_access_username: 'kali'
-      kypo_user_access_password: 'kali'
-
 
 - hosts: attacker
   become: true
