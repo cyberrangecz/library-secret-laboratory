@@ -1,4 +1,4 @@
-name: kypo-library-secret-laboratory
+name: library-secret-laboratory
 
 hosts:
   - name: attacker
@@ -40,24 +40,24 @@ networks:
     cidr: 10.2.0.0/16
 
 net_mappings:
-    - host: attacker
-      network: attacker-switch
-      ip: 10.2.135.83
+  - host: attacker
+    network: attacker-switch
+    ip: 10.2.135.83
 
-    - host: server
-      network: switch
-      ip: 10.1.26.9
+  - host: server
+    network: switch
+    ip: 10.1.26.9
 
-    - host: client
-      network: switch
-      ip: 10.1.17.4
+  - host: client
+    network: switch
+    ip: 10.1.17.4
 
 router_mappings:
-    - router: router
-      network: switch
-      ip: 10.1.0.1
-    - router: router
-      network: attacker-switch
-      ip: 10.2.0.1
+  - router: router
+    network: switch
+    ip: 10.1.0.1
+  - router: router
+    network: attacker-switch
+    ip: 10.2.0.1
 
 groups: []
