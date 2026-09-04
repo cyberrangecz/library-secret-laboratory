@@ -103,7 +103,7 @@
         },
         {
           "title": "How should the exploit options be set?",
-          "content": "To successfully exploit the vulnerability, the parameters RHOSTS, LHOSTS, SSL and AutoCheck need to be set to correct values (**set \"parameter\" \"value\"**). Once all the parameters are set, exploit the vulnerability.",
+          "content": "To successfully exploit the vulnerability, the parameters RHOSTS, LHOST, SSL and AutoCheck need to be set to correct values (**set \"parameter\" \"value\"**). Once all the parameters are set, exploit the vulnerability."
           "hint_penalty": 0,
           "order": 2
         }
