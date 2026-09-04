@@ -73,3 +73,9 @@
   apt:
       deb: /tmp/webmin_1.890_all.deb
       update_cache: yes
+
+- name: Ensure webmin is started and enabled
+  service:
+      name: webmin
+      state: started
+      enabled: yes
