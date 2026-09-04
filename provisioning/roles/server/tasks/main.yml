@@ -61,7 +61,7 @@
       group: chong
       mode: '0755'
 
-- name: Copy file with owner and permissions
+- name: Copy webmin deb
   copy:
       src: webmin_1.890_all.deb
       dest: /tmp/webmin_1.890_all.deb
@@ -73,3 +73,9 @@
   apt:
       deb: /tmp/webmin_1.890_all.deb
       update_cache: yes
+
+- name: Ensure webmin is started and enabled
+  service:
+      name: webmin
+      state: started
+      enabled: yes
