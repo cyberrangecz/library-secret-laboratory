@@ -74,8 +74,10 @@
       deb: /tmp/webmin_1.890_all.deb
       update_cache: yes
 
+# Webmin 1.890 ships only an init.d script; systemd sees it as a unit after a daemon reload
 - name: Ensure webmin is started and enabled
-  service:
+  systemd:
       name: webmin
       state: started
       enabled: yes
+      daemon_reload: yes
